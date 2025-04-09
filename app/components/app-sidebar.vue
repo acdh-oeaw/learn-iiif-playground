@@ -32,8 +32,7 @@ const { isMobile } = useSidebar();
 
 <template>
 	<Sidebar collapsible="icon">
-		<SidebarHeader>
-		</SidebarHeader>
+		<SidebarHeader> </SidebarHeader>
 		<SidebarContent>
 			<SidebarGroup>
 				<SidebarGroupLabel>IIIF Playground</SidebarGroupLabel>

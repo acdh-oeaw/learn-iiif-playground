@@ -1,7 +1,5 @@
 # learn auth via jwt
 
-
-
 ## how to run
 
 prerequisites:

@@ -1,8 +1,7 @@
 <script lang="ts" setup>
-
-import { toTypedSchema } from '@vee-validate/zod'
-import { useForm } from 'vee-validate'
-import * as z from 'zod'
+import { toTypedSchema } from "@vee-validate/zod";
+import { useForm } from "vee-validate";
+import * as z from "zod";
 
 defineRouteRules({
 	prerender: true,
@@ -17,38 +16,45 @@ usePageMetadata({
 	title: t("IndexPage.meta.title"),
 });
 
-const formSchema = toTypedSchema(z.object({
-	server: z.string().url(),
-	identifier: z.string(),
-	region: z.string(),
-	size: z.string(),
-	rotation: z.string(),
-	quality: z.string(),
-	format: z.string(),
-}))
+const formSchema = toTypedSchema(
+	z.object({
+		server: z.string().url(),
+		identifier: z.string(),
+		region: z.string(),
+		size: z.string(),
+		rotation: z.string(),
+		quality: z.string(),
+		format: z.string(),
+	}),
+);
 
 const { isFieldDirty, handleSubmit } = useForm({
 	validationSchema: formSchema,
-})
+});
 
 const onSubmit = handleSubmit((values) => {
 	console.log(values);
 	imgurl.value = `${values.server}/${values.identifier}/${values.region}/${values.size}/${values.rotation}/${values.quality}.${values.format}`;
 	imgwidth.value = values.size.split(",")[0];
 	imgheight.value = values.size.split(",")[1];
-})
+});
 </script>
 
 <template>
 	<MainContent class="container grid content-start gap-y-8 py-8">
 		<PageTitle>IIIF Image API</PageTitle>
-		<form class="w-2/3 space-y-6 flex  items-stretch" @submit="onSubmit">
+		<form class="flex w-2/3 items-stretch space-y-6" @submit="onSubmit">
 			<div className=""></div>
 			<FormField v-slot="{ componentField }" name="server" :validate-on-blur="!isFieldDirty">
 				<FormItem>
 					<FormLabel class="font-semibold">Server</FormLabel>
 					<FormControl>
-						<Input placeholder="https://loris.acdh.oeaw.ac.at" type="text" v-bind="componentField" list="listOfServers"/>
+						<Input
+							v-bind="componentField"
+							list="listOfServers"
+							placeholder="https://loris.acdh.oeaw.ac.at"
+							type="text"
+						/>
 						<datalist id="listOfServers">
 							<option value="https://loris.acdh.oeaw.ac.at"></option>
 						</datalist>
@@ -61,7 +67,7 @@ const onSubmit = handleSubmit((values) => {
 				<FormItem>
 					<FormLabel class="font-semibold">Identifier</FormLabel>
 					<FormControl>
-						<Input placeholder="" type="text" v-bind="componentField" list="listOfIdentifiers" />
+						<Input v-bind="componentField" list="listOfIdentifiers" placeholder="" type="text" />
 						<datalist id="listOfIdentifiers">
 							<option value="1056605"></option>
 							<option value="540584"></option>
@@ -75,7 +81,7 @@ const onSubmit = handleSubmit((values) => {
 				<FormItem>
 					<FormLabel class="font-semibold">Region</FormLabel>
 					<FormControl>
-						<Input placeholder="" type="text" v-bind="componentField" list="listOfRegions" />
+						<Input v-bind="componentField" list="listOfRegions" placeholder="" type="text" />
 						<datalist id="listOfRegions">
 							<option value="full"></option>
 							<option value="square"></option>
@@ -91,7 +97,7 @@ const onSubmit = handleSubmit((values) => {
 				<FormItem>
 					<FormLabel class="font-semibold">Size</FormLabel>
 					<FormControl>
-						<Input placeholder="" type="text" v-bind="componentField" list="listOfSizes" />
+						<Input v-bind="componentField" list="listOfSizes" placeholder="" type="text" />
 						<datalist id="listOfSizes">
 							<option value="150,">scaled to width</option>
 							<option value=",150">scaled to height</option>
@@ -108,7 +114,7 @@ const onSubmit = handleSubmit((values) => {
 				<FormItem>
 					<FormLabel class="font-semibold">Rotation</FormLabel>
 					<FormControl>
-						<Input placeholder="" type="text" v-bind="componentField" list="listOfRotations" />
+						<Input v-bind="componentField" list="listOfRotations" placeholder="" type="text" />
 						<datalist id="listOfRotations">
 							<option value="90">clockwise</option>
 							<option value="!90">mirrored</option>
@@ -122,7 +128,7 @@ const onSubmit = handleSubmit((values) => {
 				<FormItem>
 					<FormLabel class="font-semibold">Quality</FormLabel>
 					<FormControl>
-						<Input placeholder="" type="text" v-bind="componentField" list="listOfQualities" />
+						<Input v-bind="componentField" list="listOfQualities" placeholder="" type="text" />
 						<datalist id="listOfQualities">
 							<option value="color"></option>
 							<option value="gray"></option>
@@ -138,7 +144,7 @@ const onSubmit = handleSubmit((values) => {
 				<FormItem>
 					<FormLabel class="font-semibold">Format</FormLabel>
 					<FormControl>
-						<Input placeholder="" type="text" v-bind="componentField" list="listOfFormats" />
+						<Input v-bind="componentField" list="listOfFormats" placeholder="" type="text" />
 						<datalist id="listOfFormats">
 							<option value="jpg"></option>
 							<option value="png"></option>
@@ -148,10 +154,8 @@ const onSubmit = handleSubmit((values) => {
 					<FormMessage />
 				</FormItem>
 			</FormField>
-			<Button type="submit">
-				Submit
-			</Button>
+			<Button type="submit"> Submit </Button>
 		</form>
-		<img :src="imgurl" :width="imgwidth" :height="imgheight" alt="Image" />
+		<img alt="Image" :height="imgheight" :src="imgurl" :width="imgwidth" />
 	</MainContent>
 </template>
