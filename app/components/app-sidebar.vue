@@ -3,7 +3,18 @@ import { useSidebar } from "@/components/ui/sidebar";
 import { colorSchemes } from "@/config/colorSchemes.config";
 import { locales } from "@/config/i18n.config";
 
-const NavItems = [];
+const NavItems = [
+	{
+		icon: "ImageUp",
+		tooltip: "Image API",
+		href: "/image-api",
+	},
+	{
+		icon: "FileJson2",
+		tooltip: "Presentation API",
+		href: "/presentation-api",
+	},
+];
 
 const colorMode = useColorMode();
 
@@ -25,7 +36,7 @@ const { isMobile } = useSidebar();
 		</SidebarHeader>
 		<SidebarContent>
 			<SidebarGroup>
-				<SidebarGroupLabel>Platform Functions</SidebarGroupLabel>
+				<SidebarGroupLabel>IIIF Playground</SidebarGroupLabel>
 				<SidebarGroupContent>
 					<SidebarMenu>
 						<SidebarMenuItem v-for="(item, index) in NavItems" :key="index">
