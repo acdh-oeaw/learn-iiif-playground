@@ -1,4 +1,4 @@
-# learn auth via jwt
+# learn IIIF 
 
 ## how to run
 
