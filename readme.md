@@ -1,5 +1,14 @@
 # learn IIIF 
 
+[image api](https://iiif.io/api/image/3.0)
+
+[presentation api](https://iiif.io/api/presentation/3.0)
+
+[acdh iiif server](https://iiif.acdh.oeaw.ac.at/)
+
+[mirador viewer](https://projectmirador.org/)
+[openseadragon](https://openseadragon.github.io/)
+
 ## how to run
 
 prerequisites:
