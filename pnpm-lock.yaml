@@ -95,6 +95,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
+      tify:
+        specifier: ^0.32.0
+        version: 0.32.0
       valibot:
         specifier: ^0.42.1
         version: 0.42.1(typescript@5.8.2)
@@ -5378,6 +5381,10 @@ packages:
   throttle-debounce@5.0.2:
     resolution: {integrity: sha512-B71/4oyj61iNH0KeCamLuE2rmKuTO5byTOSVwECM5FA7TiAiAW+UqTKZ9ERueC4qvgSttUhdmq1mXC3kJqGX7A==}
     engines: {node: '>=12.22'}
+
+  tify@0.32.0:
+    resolution: {integrity: sha512-kIyFHpQO939Ej2lBRxoNdrimw/+D9YbaV5bT5jQaG0NEvr/TU4CgAmbaPPJtQfTMYKkgCNmJQNdMxIR+5HRTCQ==}
+    engines: {node: '>= 20', npm: '>= 9'}
 
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
@@ -11996,6 +12003,8 @@ snapshots:
   three@0.135.0: {}
 
   throttle-debounce@5.0.2: {}
+
+  tify@0.32.0: {}
 
   tiny-inflate@1.0.3: {}
 

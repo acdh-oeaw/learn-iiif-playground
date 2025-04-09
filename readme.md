@@ -7,7 +7,13 @@
 [acdh iiif server](https://iiif.acdh.oeaw.ac.at/)
 
 [mirador viewer](https://projectmirador.org/)
+
 [openseadragon](https://openseadragon.github.io/)
+
+[iiif manifest library](https://github.com/DigitalPiranesi/IIIF-Manifest-Library)
+> [!WARNING]
+>
+> this uses the presentation 3.0 spec which is not supported by all viewers yet.
 
 ## how to run
 
